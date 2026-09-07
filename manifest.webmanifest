@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "Sono Audio Mastering",
+  "short_name": "Sono",
+  "description": "Private, approachable audio mastering in your browser. Your track. Finished.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#11110f",
+  "theme_color": "#151513",
+  "orientation": "any",
+  "categories": ["music", "utilities", "productivity"],
+  "icons": [
+    {"src": "sono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "sono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

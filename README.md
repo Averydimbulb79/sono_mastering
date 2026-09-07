@@ -37,7 +37,16 @@ Sono is currently a functional browser-based beta. The core workflow is operatio
 | 4 | Added real section removal and adjustable fade-in and fade-out processing | Completed |
 | 5 | Redesigned editing for easier use with waveform drag selection, larger controls, sliders and presets | Completed |
 | 6 | Added edit history, keyboard shortcuts, click-safe cut joins and estimated inter-sample peak monitoring | Completed |
-| 7 | Simplified the experience around plain-language review, four sound choices, one strength control and optional fine-tuning | Current |
+| 7 | Simplified the experience around plain-language review, four sound choices, one strength control and optional fine-tuning | Completed |
+| 8 | Added installable web-app support, standalone launch behaviour, app icons and offline shell caching | Ready to publish |
+
+## Install Sono
+
+Sono can be installed as a Progressive Web App from the live GitHub Pages site. In Chrome or Microsoft Edge, use the Install icon in the address bar or select Install Sono from the browser menu. The installed app opens in its own standalone window.
+
+On iPhone or iPad, open Sono in a supported browser, use the Share menu and choose Add to Home Screen. Installation controls vary by browser and operating system.
+
+The app shell is cached for offline launch after the first successful visit. Audio processing continues to happen locally on the device.
 
 ## How to use Sono
 
@@ -137,6 +146,9 @@ For the single-file release, the complete application is stored in `index.html`.
 | `index.html` | Complete Sono application |
 | `README.md` | Project information and progress |
 | `LICENSE` | Project licence, if included |
+| `manifest.webmanifest` | Install name, colours, scope and app icons |
+| `sw.js` | Offline app-shell caching and update handling |
+| `sono-192.png`, `sono-512.png` | Install icons for desktop and mobile devices |
 
 ## Running locally
 
