@@ -29,7 +29,11 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 </style>
-  <style>.edit-history{display:flex;align-items:center;gap:12px}.edit-history button:disabled{opacity:.3;cursor:not-allowed}.edit-history button:disabled:hover{color:inherit}@media(max-width:560px){.edit-card-head{align-items:flex-start}.edit-history{gap:8px;flex-wrap:wrap;justify-content:flex-end}}</style>
+  <style>
+  .edit-history{display:flex;align-items:center;gap:12px}.edit-history button:disabled{opacity:.3;cursor:not-allowed}.edit-history button:disabled:hover{color:inherit}
+  .simple-review{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:20px}.simple-review article{padding:16px 10px;text-align:center;border-right:1px solid var(--line)}.simple-review article:last-child{border-right:0}.simple-review span,.simple-review strong{display:block}.simple-review span{color:var(--muted);font-size:.65rem}.simple-review strong{color:var(--silver);font-size:.9rem;margin-top:7px}.track-advice{margin:0;padding:13px 14px;background:rgba(212,154,69,.07);border:1px solid var(--line);border-top:0;color:var(--silver);font-size:.72rem;line-height:1.5}.technical-details{margin-top:12px}.technical-details>summary,.fine-tune>summary{cursor:pointer;color:var(--muted);font-size:.72rem;list-style:none;padding:11px 0}.technical-details>summary:after,.fine-tune>summary:after{content:" +";color:var(--amber)}.technical-details[open]>summary:after,.fine-tune[open]>summary:after{content:" −"}.technical-details .analysis-grid{margin-top:0}.simple-profiles{grid-template-columns:repeat(4,1fr)}.strength-control{display:block;margin-top:18px;border:1px solid var(--line);padding:14px 16px}.strength-control>span:first-child{display:flex;justify-content:space-between;align-items:center}.strength-control b{font-size:.75rem}.strength-control #strengthWord{color:var(--amber);font-size:.7rem}.strength-control input{width:100%;margin:14px 0 5px;accent-color:var(--amber)}.strength-scale{display:flex;justify-content:space-between;color:var(--muted);font-size:.62rem}.fine-tune{padding:0 14px}.fine-tune>summary{display:flex;justify-content:space-between}.fine-tune>summary small{font-size:.62rem}.fine-tune .control-heading{margin:0 -14px}.fine-tune .controls-grid{margin:0 -14px}
+  @media(max-width:560px){.edit-card-head{align-items:flex-start}.edit-history{gap:8px;flex-wrap:wrap;justify-content:flex-end}.simple-review{grid-template-columns:1fr 1fr}.simple-review article:nth-child(2){border-right:0}.simple-review article:nth-child(n+3){border-top:1px solid var(--line)}.simple-profiles{grid-template-columns:1fr 1fr}}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -109,7 +113,14 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
       </div>
 
       <p class="process-detail" id="processDetail">Waiting for a mix</p>
-      <div class="analysis-grid analysis-expanded" id="analysisGrid">
+      <div class="simple-review" id="simpleReview">
+        <article><span>Loudness</span><strong id="simpleLoudness">Waiting</strong></article>
+        <article><span>Clarity</span><strong id="simpleClarity">Waiting</strong></article>
+        <article><span>Dynamics</span><strong id="simpleDynamics">Waiting</strong></article>
+        <article><span>Stereo</span><strong id="simpleStereo">Waiting</strong></article>
+      </div>
+      <p class="track-advice" id="trackAdvice">Add a track and Sono will explain what it hears.</p>
+      <details class="technical-details"><summary>See technical details</summary><div class="analysis-grid analysis-expanded" id="analysisGrid">
         <article><span>Integrated</span><strong id="metricLufs">···</strong><em>LUFS</em></article>
         <article><span>Estimated true peak</span><strong id="metricPeak">···</strong><em>dBTP</em></article>
         <article><span>RMS</span><strong id="metricRms">···</strong><em>dBFS</em></article>
@@ -117,27 +128,27 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
         <article><span>Stereo width</span><strong id="metricStereo">···</strong><em>%</em></article>
         <article><span>Correlation</span><strong id="metricCorr">···</strong></article>
         <article class="band-metric"><span>Spectrum · bass / low-mid / mid / high</span><strong id="metricBands">···</strong><em>%</em></article>
-      </div>
+      </div></details>
       <p class="clip-status" id="clipStatus">Clipping check begins after import</p>
     </section>
 
     <section class="master-panel panel" aria-labelledby="masterTitle">
       <div class="section-head">
-        <div><span class="eyebrow">02 / CHARACTER</span><h2 id="masterTitle">Mastering profile</h2></div>
-        <button class="reset-button" id="resetButton">Reset</button>
+        <div><span class="eyebrow">02 / SOUND</span><h2 id="masterTitle">Choose how it should feel</h2></div>
+        <button class="reset-button" id="resetButton">Start over</button>
       </div>
 
-      <div class="profiles" role="radiogroup" aria-label="Mastering profile">
-        <button class="profile active" data-profile="auto" role="radio" aria-checked="true"><span class="profile-icon">A</span><strong>Auto</strong><small>Balanced intelligence</small></button>
-        <button class="profile" data-profile="clean" role="radio" aria-checked="false"><span class="profile-icon">C</span><strong>Clean</strong><small>Clarity and control</small></button>
-        <button class="profile" data-profile="warm" role="radio" aria-checked="false"><span class="profile-icon">W</span><strong>Warm</strong><small>Rich analogue tone</small></button>
-        <button class="profile" data-profile="acoustic" role="radio" aria-checked="false"><span class="profile-icon">AC</span><strong>Acoustic</strong><small>Natural and open</small></button>
-        <button class="profile" data-profile="punch" role="radio" aria-checked="false"><span class="profile-icon">P</span><strong>Punch</strong><small>Impact and presence</small></button>
-        <button class="profile" data-profile="atmospheric" role="radio" aria-checked="false"><span class="profile-icon">AT</span><strong>Atmospheric</strong><small>Wide and spacious</small></button>
+      <div class="profiles simple-profiles" role="radiogroup" aria-label="Sound character">
+        <button class="profile active" data-profile="auto" role="radio" aria-checked="true"><span class="profile-icon">N</span><strong>Natural</strong><small>Polished, still recognisably yours</small></button>
+        <button class="profile" data-profile="clean" role="radio" aria-checked="false"><span class="profile-icon">C</span><strong>Clear</strong><small>More openness and definition</small></button>
+        <button class="profile" data-profile="warm" role="radio" aria-checked="false"><span class="profile-icon">W</span><strong>Warm</strong><small>Smoother with a fuller body</small></button>
+        <button class="profile" data-profile="punch" role="radio" aria-checked="false"><span class="profile-icon">E</span><strong>Energetic</strong><small>Stronger impact and presence</small></button>
       </div>
 
-      <div class="controls-card">
-        <div class="control-heading"><span>Fine controls</span><small>Profile: <b id="activeProfileLabel">Auto</b></small></div>
+      <label class="strength-control"><span><b>Strength</b><small id="strengthWord">Balanced</small></span><input id="strength" type="range" min="0" max="100" value="50"><span class="strength-scale"><small>Subtle</small><small>Balanced</small><small>Strong</small></span></label>
+
+      <details class="controls-card fine-tune"><summary>Fine-tune <small>Optional controls</small></summary>
+        <div class="control-heading"><span>Detailed controls</span><small>Sound: <b id="activeProfileLabel">Natural</b></small></div>
         <div class="controls-grid seven-controls">
           <label class="dial-control"><span>Warmth</span><span class="dial"><input id="warmth" type="range" min="0" max="100" value="35"><i></i><b>35</b></span><small>tone</small></label>
           <label class="dial-control"><span>Brightness</span><span class="dial"><input id="brightness" type="range" min="0" max="100" value="50"><i></i><b>50</b></span><small>air</small></label>
@@ -147,7 +158,7 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
           <label class="dial-control"><span>Width</span><span class="dial"><input id="width" type="range" min="75" max="130" value="100"><i></i><b>100</b></span><small>stereo</small></label>
           <label class="dial-control"><span>Loudness</span><span class="dial"><input id="loudness" type="range" min="0" max="100" value="50"><i></i><b>50</b></span><small>density</small></label>
         </div>
-      </div>
+      </details>
 
       <div class="reference-card">
         <div><span class="eyebrow">REFERENCE</span><strong id="referenceName">Guide the tonal balance</strong><small id="referenceMeta">Optional MP3 or WAV</small></div>
@@ -164,7 +175,7 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
         <span class="module-label">MONITOR</span>
         <div class="ab-toggle" role="group" aria-label="A B comparison">
           <button class="active" data-mode="original">A <span>Original</span></button>
-          <button data-mode="mastered">B <span>Mastered</span></button>
+          <button data-mode="mastered">B <span>Sono</span></button>
         </div>
         <label class="match-toggle"><input id="loudnessMatch" type="checkbox" checked> Loudness match A/B</label>
         <small id="monitorHint">Upload a mix to compare</small>
@@ -189,7 +200,7 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
         <div class="meter-scale"><span>-24</span><span>-18</span><span>-12</span><span>-6</span><span>0</span></div>
       </div>
 
-      <button class="master-button" id="masterButton" disabled><span id="masterButtonText">Master track</span><small id="masterButtonSub">Choose a source mix first</small></button>
+      <button class="master-button" id="masterButton" disabled><span id="masterButtonText">Master my track</span><small id="masterButtonSub">Choose a source mix first</small></button>
 
       <div class="export-module hidden" id="exportModule">
         <div class="success-line"><span>Master ready</span><small id="masterStats">Preview rendered locally</small></div>
@@ -545,12 +556,13 @@ function resetEdits(){if(!S.raw)return;rememberEdit();S.editBase=S.raw;S.cuts=[]
 function bands(b){let d=b.getChannelData(0),N=1024,hop=Math.max(N,Math.floor(d.length/10)),o=[0,0,0,0];for(let z=0;z+N<d.length;z+=hop)for(let k=1;k<N/2;k+=3){let re=0,im=0;for(let i=0;i<N;i+=4){let x=d[z+i]*(.5-.5*Math.cos(2*Math.PI*i/(N-1))),a=2*Math.PI*k*i/N;re+=x*Math.cos(a);im-=x*Math.sin(a)}let p=re*re+im*im,f=k*b.sampleRate/N;o[f<120?0:f<500?1:f<4000?2:3]+=p}let t=o.reduce((a,b)=>a+b,0)||1;return o.map(x=>x/t*100)}
 function estimatedTruePeak(b){let peak=0;for(let c=0;c<b.numberOfChannels;c++){let d=b.getChannelData(c);for(let i=1;i<d.length-2;i++){let p0=d[i-1],p1=d[i],p2=d[i+1],p3=d[i+2];peak=Math.max(peak,Math.abs(p1));for(let q=1;q<4;q++){let t=q/4,t2=t*t,t3=t2*t,v=.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t2+(-p0+3*p1-3*p2+p3)*t3);peak=Math.max(peak,Math.abs(v))}}}return peak}
 function analyse(b){let L=b.getChannelData(0),R=b.numberOfChannels>1?b.getChannelData(1):L,step=Math.max(1,Math.floor(b.length/8e5)),pk=estimatedTruePeak(b),sum=0,n=0,ms=0,ss=0,lr=0,ll=0,rr=0,clip=0;for(let i=0;i<b.length;i+=step){let l=L[i],r=R[i],a=Math.max(Math.abs(l),Math.abs(r));sum+=(l*l+r*r)/2;ms+=((l+r)/2)**2;ss+=((l-r)/2)**2;lr+=l*r;ll+=l*l;rr+=r*r;clip+=a>=.999;n++}let rms=Math.sqrt(sum/n),p=db(pk),r=db(rms),q=bands(b);return{peak:pk,peakDb:p,rmsDb:r,lufs:r-.9,crest:p-r,dynamic:p-r,width:b.numberOfChannels===1?0:Math.min(200,100*Math.sqrt(ss/(ms+1e-12))),corr:b.numberOfChannels===1?1:lr/Math.sqrt(ll*rr+1e-12),clip,bass:q[0],lowmid:q[1],mid:q[2],high:q[3]}}
-function show(a){$("#metricLufs").textContent=fmt(a.lufs);$("#metricPeak").textContent=fmt(a.peakDb);$("#metricRms").textContent=fmt(a.rmsDb);$("#metricCrest").textContent=fmt(a.crest);$("#metricStereo").textContent=Math.round(a.width);$("#metricCorr").textContent=a.corr.toFixed(2);$("#metricBands").textContent=[a.bass,a.lowmid,a.mid,a.high].map(Math.round).join(" / ");$("#clipStatus").textContent=a.clip?`${a.clip} sampled peaks at risk`:"No sampled clipping detected";$("#clipStatus").classList.toggle("warning",!!a.clip)}
+function show(a){$("#metricLufs").textContent=fmt(a.lufs);$("#metricPeak").textContent=fmt(a.peakDb);$("#metricRms").textContent=fmt(a.rmsDb);$("#metricCrest").textContent=fmt(a.crest);$("#metricStereo").textContent=Math.round(a.width);$("#metricCorr").textContent=a.corr.toFixed(2);$("#metricBands").textContent=[a.bass,a.lowmid,a.mid,a.high].map(Math.round).join(" / ");$("#clipStatus").textContent=a.clip?`${a.clip} sampled peaks at risk`:"No sampled clipping detected";$("#clipStatus").classList.toggle("warning",!!a.clip);$("#simpleLoudness").textContent=a.lufs>-10?"High":a.lufs>-15?"Balanced":"Quiet";$("#simpleClarity").textContent=a.high>38?"Bright":a.high<18?"Soft":"Balanced";$("#simpleDynamics").textContent=a.crest<7?"Dense":a.crest>14?"Open":"Healthy";$("#simpleStereo").textContent=a.corr<.15?"Needs care":a.width<35?"Narrow":a.width>125?"Wide":"Balanced";let notes=[];if(a.lufs<-15)notes.push("a little quiet");if(a.bass>28)notes.push("strong in the bass");if(a.high>40)notes.push("quite bright");if(a.crest>14)notes.push("nicely dynamic");if(a.corr<.15)notes.push("showing possible stereo issues");$("#trackAdvice").textContent=notes.length?`Your track is ${notes.join(", ")}. Sono will balance it while protecting its character.`:"Your track is already well balanced. Sono will add polish without over-processing it."}
 function draw(b){let c=$("#waveform"),r=devicePixelRatio||1,w=c.width=c.clientWidth*r,h=c.height=c.clientHeight*r,x=c.getContext("2d"),d=b.getChannelData(0),step=Math.ceil(d.length/w);x.clearRect(0,0,w,h);x.strokeStyle="#c4c0b4";x.beginPath();for(let i=0;i<w;i++){let lo=1,hi=-1;for(let j=0;j<step;j++){let v=d[i*step+j]||0;lo=Math.min(lo,v);hi=Math.max(hi,v)}x.moveTo(i,h/2+lo*h*.44);x.lineTo(i,h/2+hi*h*.44)}x.stroke()}
 function auto(){let a=S.analysis;if(!a)return;presets.auto=[35+(a.high>38?8:0),50+(a.high<22?8:a.high>38?-7:0),50+(a.bass<12?7:a.bass>27?-6:0),44+(a.crest>14?-6:0),50+(a.mid<38?6:0),Math.max(92,Math.min(115,100+(75-a.width)*.15)),a.crest>14?43:50];if(S.refAnalysis){presets.auto[1]+=(S.refAnalysis.high-a.high)*.2;presets.auto[2]+=(S.refAnalysis.bass-a.bass)*.2}if(S.profile==="auto")profile("auto",false)}
 async function load(f){if(!valid(f))return;stop();S.file=f;$("#dropZone").classList.add("hidden");$("#trackView").classList.remove("hidden");$("#editCard").classList.remove("hidden");$("#replaceButton").classList.remove("hidden");$("#trackName").textContent=f.name;stage("DECODING","Reading audio on this device");try{S.raw=await decode(f);S.editBase=S.raw;S.cuts=[];S.fadeIn=S.fadeOut=0;$("#fadeIn").value=$("#fadeOut").value=0;$("#fadeInValue").textContent=$("#fadeOutValue").textContent="0.0 sec";$("#clipStart").value=$("#clipEnd").value=0;S.original=withFades(S.editBase);stage("ANALYSING","Measuring level, spectrum, dynamics and stereo image");await new Promise(r=>setTimeout(r,20));S.analysis=analyse(S.original);show(S.analysis);auto();draw(S.original);$("#trackMeta").textContent=`${/\.wav$/i.test(f.name)?"WAV":"MP3"} · ${clock(S.original.duration)} · ${(S.original.sampleRate/1000).toFixed(1)} kHz · ${S.original.numberOfChannels===1?"Mono":S.original.numberOfChannels+" channels"}`;$("#duration").textContent=clock(S.original.duration);$("#clipStart").max=$("#clipEnd").max=S.original.duration.toFixed(2);$("#fadeIn").max=$("#fadeOut").max=Math.min(30,S.original.duration/2).toFixed(1);editSummary();updateSelection();$("#masterButton").disabled=false;$("#masterButtonSub").textContent="Render locally from the edited source";stage("READY",`${fmt(S.analysis.lufs)} LUFS · ${fmt(S.analysis.peakDb)} dBFS sample peak`)}catch(e){console.error(e);toast("Sono could not decode this file.");resetTrack()}}
 function dial(e){let d=e.closest(".dial"),p=(+e.value-e.min)/(e.max-e.min);d.style.setProperty("--angle",p*270+"deg");d.style.setProperty("--rotation",(-135+p*270)+"deg");d.querySelector("b").textContent=Math.round(e.value)}
-function profile(n,dirty=true){S.profile=n;ids.forEach((id,i)=>{$("#"+id).value=Math.round(presets[n][i]);dial($("#"+id))});$$('.profile').forEach(b=>{let a=b.dataset.profile===n;b.classList.toggle("active",a);b.setAttribute("aria-checked",a)});$("#activeProfileLabel").textContent=n[0].toUpperCase()+n.slice(1);if(dirty)invalidate()}
+function applyStrength(dirty=true){let factor=.5+(+$("#strength").value/100),neutral=[50,50,50,50,50,100,50];ids.forEach((id,i)=>{let e=$("#"+id),v=neutral[i]+(presets[S.profile][i]-neutral[i])*factor;e.value=Math.max(+e.min,Math.min(+e.max,Math.round(v)));dial(e)});if(dirty)invalidate()}
+function profile(n,dirty=true){S.profile=n;applyStrength(false);$$('.profile').forEach(b=>{let a=b.dataset.profile===n;b.classList.toggle("active",a);b.setAttribute("aria-checked",a)});$("#activeProfileLabel").textContent=({auto:"Natural",clean:"Clear",warm:"Warm",punch:"Energetic"})[n]||n;if(dirty)invalidate()}
 function invalidate(){S.mastered=null;$("#exportModule").classList.add("hidden");if(S.original)stage("READY","Settings changed · render to hear them")}
 function curve(k){let a=new Float32Array(4096);for(let i=0;i<a.length;i++){let x=i*2/(a.length-1)-1;a[i]=(1+k)*x/(1+k*Math.abs(x))}return a}
 async function master(){if(!S.original)return;let b=S.original,c=Object.fromEntries(ids.map(x=>[x,+$("#"+x).value])),target=+$("#targetLufs").value,ceiling=-1;$("#masterButton").disabled=true;stage("MASTERING","Building the local DSP chain");try{let o=new OfflineAudioContext(b.numberOfChannels,b.length,b.sampleRate),src=o.createBufferSource();src.buffer=b;let n=src;for(let spec of [["highpass",24,.7,0],["lowshelf",120,1,(c.bass-50)*.1],["peaking",320,.7,(c.warmth-50)*.065],["peaking",2800,.75,(c.presence-50)*.07],["highshelf",7200,1,(c.brightness-50)*.085]]){let f=o.createBiquadFilter();[f.type,f.frequency.value,f.Q.value,f.gain.value]=spec;n.connect(f);n=f}if(c.warmth>22){let w=o.createWaveShaper();w.curve=curve((c.warmth-20)/150);w.oversample="4x";n.connect(w);n=w}let cp=o.createDynamicsCompressor();cp.threshold.value=-12-(c.punch-50)*.13;cp.knee.value=18;cp.ratio.value=1.35+c.punch*.023;cp.attack.value=.012-c.punch*.00008;cp.release.value=.18;n.connect(cp);n=cp;if(b.numberOfChannels>1){let sp=o.createChannelSplitter(2),mg=o.createChannelMerger(2),g=[o.createGain(),o.createGain(),o.createGain(),o.createGain()],w=Math.max(.7,Math.min(1.35,c.width/100)),direct=(1+w)/2,cross=(1-w)/2;g[0].gain.value=g[1].gain.value=direct;g[2].gain.value=g[3].gain.value=cross;n.connect(sp);sp.connect(g[0],0);sp.connect(g[2],0);sp.connect(g[1],1);sp.connect(g[3],1);g[0].connect(mg,0,0);g[3].connect(mg,0,0);g[1].connect(mg,0,1);g[2].connect(mg,0,1);n=mg}let wanted=target-S.analysis.lufs+(c.loudness-50)*.045,safe=Math.min(wanted,Math.max(0,ceiling-S.analysis.peakDb+3.5));$("#gainWarning").classList.toggle("hidden",wanted-safe<2.5);let out=o.createGain();out.gain.value=amp(safe);n.connect(out).connect(o.destination);src.start();stage("RENDERING","Rendering processed PCM");let r=await o.startRendering(),pk=0;for(let c=0;c<r.numberOfChannels;c++)for(let v of r.getChannelData(c))pk=Math.max(pk,Math.abs(v));let max=amp(ceiling);if(pk>max)for(let c=0;c<r.numberOfChannels;c++){let d=r.getChannelData(c),g=max/pk;for(let i=0;i<d.length;i++)d[i]*=g}S.mastered=r;S.masterAnalysis=analyse(r);$("#masterStats").textContent=`${fmt(S.masterAnalysis.lufs)} LUFS · ${fmt(S.masterAnalysis.peakDb)} dBFS`;$("#exportModule").classList.remove("hidden");stage("READY",`Master ready · ${fmt(S.masterAnalysis.peakDb)} dBFS sample peak`);ab("mastered");toast("Master rendered locally.")}catch(e){console.error(e);toast("Rendering failed. Try closing other large tabs.");stage("READY","Rendering failed")}finally{$("#masterButton").disabled=false}}
@@ -565,6 +577,8 @@ function resetTrack(){stop();S.raw=S.editBase=S.original=S.mastered=null;S.undo=
 [$("#clipStart"),$("#clipEnd")].forEach(e=>e.oninput=updateSelection);$("#setClipStart").onclick=()=>{$("#clipStart").value=S.pos.toFixed(2);updateSelection()};$("#setClipEnd").onclick=()=>{$("#clipEnd").value=S.pos.toFixed(2);updateSelection()};$("#removeClipButton").onclick=removeClip;$("#resetEditsButton").onclick=resetEdits;[$("#fadeIn"),$("#fadeOut")].forEach(e=>{e.oninput=()=>{$("#"+e.id+"Value").textContent=(+e.value).toFixed(1)+" sec"};e.onchange=applyFades});$$('.fade-presets button').forEach(b=>b.onclick=()=>{$("#fadeIn").value=$("#fadeOut").value=b.dataset.fade;applyFades()});
 $("#browseButton").onclick=e=>{e.stopPropagation();$("#fileInput").click()};$("#dropZone").onclick=()=>$("#fileInput").click();$("#fileInput").onchange=e=>load(e.target.files[0]);$("#dropZone").ondragover=e=>e.preventDefault();$("#dropZone").ondrop=e=>{e.preventDefault();load(e.dataTransfer.files[0])};$("#replaceButton").onclick=()=>$("#fileInput").click();$("#playButton").onclick=play;$("#volume").oninput=e=>{if(S.gain)S.gain.gain.value=+e.target.value*match()};$$('.profile').forEach(b=>b.onclick=()=>profile(b.dataset.profile));ids.forEach(id=>$("#"+id).oninput=e=>{dial(e.target);invalidate()});$("#resetButton").onclick=()=>profile("auto");$$('.ab-toggle button').forEach(b=>b.onclick=()=>ab(b.dataset.mode));$("#loudnessMatch").onchange=()=>ab(S.mode);$("#masterButton").onclick=master;$("#referenceButton").onclick=()=>$("#referenceInput").click();$("#referenceInput").onchange=e=>reference(e.target.files[0]);$("#targetPreset").onchange=e=>{$("#customTargetWrap").classList.toggle("hidden",e.target.value!=="custom");if(e.target.value!=="custom")$("#targetLufs").value=e.target.value;invalidate()};$("#customTarget").oninput=e=>{$("#targetLufs").value=e.target.value;$("#customTargetValue").textContent=e.target.value+" LUFS";invalidate()};$$('.format-switch button').forEach(b=>b.onclick=()=>{S.format=b.dataset.format;$$('.format-switch button').forEach(x=>x.classList.toggle("active",x===b));$("#qualityLabel").textContent=S.format==="wav"?"WAV quality":"MP3 quality";$("#qualitySelect").innerHTML=S.format==="wav"?'<option value="24">24-bit</option><option value="16">16-bit</option>':'<option>320 kbps when supported</option>'});$("#exportButton").onclick=exportFile;window.onresize=()=>active()&&draw(active());profile("auto",false);stage("READY","Waiting for a mix");
 $("#waveform").onpointerdown=beginSelection;$("#waveform").onpointermove=moveSelection;$("#waveform").onpointerup=endSelection;$("#waveform").onpointercancel=()=>S.selecting=false;$("#waveform").onclick=e=>{if(S.dragged){S.dragged=false;return}let on=S.playing;if(on)pause();S.pos=e.offsetX/e.currentTarget.clientWidth*active().duration;$("#playhead").style.left=S.pos/active().duration*100+"%";$("#currentTime").textContent=clock(S.pos);if(on)play()};
+$("#strength").oninput=e=>{let v=+e.target.value;$("#strengthWord").textContent=v<34?"Subtle":v>66?"Strong":"Balanced";applyStrength()};
+$("#resetButton").onclick=()=>{$("#strength").value=50;$("#strengthWord").textContent="Balanced";profile("auto")};
 $("#undoButton").onclick=undoEdit;$("#redoButton").onclick=redoEdit;
 $("#fileInput").addEventListener("change",()=>{S.undo=[];S.redo=[];historyButtons()},true);
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();e.shiftKey?redoEdit():undoEdit()}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="y"){e.preventDefault();redoEdit()}});

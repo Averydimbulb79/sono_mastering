@@ -36,16 +36,17 @@ Sono is currently a functional browser-based beta. The core workflow is operatio
 | 3 | Renamed the application from Sino to Sono and updated the public address | Completed |
 | 4 | Added real section removal and adjustable fade-in and fade-out processing | Completed |
 | 5 | Redesigned editing for easier use with waveform drag selection, larger controls, sliders and presets | Completed |
-| 6 | Added edit history, keyboard shortcuts, click-safe cut joins and estimated inter-sample peak monitoring | Current |
+| 6 | Added edit history, keyboard shortcuts, click-safe cut joins and estimated inter-sample peak monitoring | Completed |
+| 7 | Simplified the experience around plain-language review, four sound choices, one strength control and optional fine-tuning | Current |
 
 ## How to use Sono
 
 1. Open the [live application](https://averydimbulb79.github.io/sono_mastering/).
 2. Choose or drag in a WAV or MP3 mix.
-3. Review the waveform and audio analysis.
+3. Review Sono's plain-language assessment of loudness, clarity, dynamics and stereo balance.
 4. If necessary, drag across the waveform to highlight an unwanted section, then select Remove Highlighted Section.
 5. Adjust fade-in and fade-out lengths with the sliders or use a preset.
-6. Choose a mastering profile and refine the mastering controls.
+6. Choose Natural, Clear, Warm or Energetic, then set the processing strength.
 7. Optionally add a reference track.
 8. Choose a loudness target and select Master Track.
 9. Compare the edited source and mastered version using the A/B controls.
@@ -69,12 +70,12 @@ Edits are included in playback, analysis, mastering and the exported file.
 
 | Profile | Intended character |
 | --- | --- |
-| Auto | Analyses the source and selects balanced starting values |
-| Clean | Controlled, clear and restrained |
+| Natural | Analyses the source and applies restrained, balanced polish |
+| Clear | Controlled, open and defined |
 | Warm | Fuller low-mid tone with gentle saturation |
-| Acoustic | Natural, open and less compressed |
-| Punch | Stronger impact, density and presence |
-| Atmospheric | Wider and more spacious |
+| Energetic | Stronger impact, density and presence |
+
+Detailed tone, dynamics and stereo controls remain available under Fine-tune. They are optional and are hidden by default.
 
 ## Local processing and privacy
 
