@@ -1,4 +1,6 @@
-# Sono
+# SONO
+
+Version 2.0 | Responsive audio mastering studio
 
 Your track. Finished.
 
@@ -7,6 +9,19 @@ Sono is a self-contained browser-based audio mastering application for WAV and M
 ## Live application
 
 [Open Sono](https://averydimbulb79.github.io/sono_mastering/)
+
+## Version 2.0: responsive studio
+
+| Feature | Implementation |
+| --- | --- |
+| New visual design | Navy studio theme, violet-to-cyan actions, compact rounded controls |
+| Auto Enhance | One-click shortcut to the existing local mastering engine |
+| Advanced mode | Reveals existing detailed mastering controls and reference tools |
+| Responsive layout | Desktop multi-column, tablet two-column, mobile single-column |
+| Touch usability | Larger primary actions and adaptive processing controls |
+| Privacy | Audio remains processed locally in the browser |
+
+The 2.0 release focuses on user experience. Advanced non-AI spectral restoration, automatic artifact detection, and selectable individual restoration algorithms are planned, not yet implemented. The existing mastering engine, editing functions, A/B monitoring and export workflow remain the processing foundation.
 
 ## Project status
 
@@ -38,7 +53,8 @@ Sono is currently a functional browser-based beta. The core workflow is operatio
 | 5 | Redesigned editing for easier use with waveform drag selection, larger controls, sliders and presets | Completed |
 | 6 | Added edit history, keyboard shortcuts, click-safe cut joins and estimated inter-sample peak monitoring | Completed |
 | 7 | Simplified the experience around plain-language review, four sound choices, one strength control and optional fine-tuning | Completed |
-| 8 | Added installable web-app support, standalone launch behaviour, app icons and offline shell caching | Ready to publish |
+| 8 | Added installable web-app support, standalone launch behaviour, app icons and offline shell caching | Completed |
+| 2.0 | Responsive studio redesign, one-click Auto Enhance and Advanced mode | Completed |
 
 ## Install Sono
 
