@@ -629,10 +629,10 @@ const heading=masterPanel.querySelector('.section-head');if(heading)heading.afte
 const hint=document.createElement('p');hint.className='sono-hint';hint.textContent='Choose a sound profile and press one button. SONO processes your audio locally on this device.';
 bar.after(hint);
 const cta=document.createElement('button');cta.type='button';cta.className='sono-auto-cta';cta.textContent='✦ Make It Sound Better';cta.disabled=masterButton.disabled;
-cta.addEventListener('click',()=>masterButton.click());
+cta.addEventListener('click',()=>{if(!document.getElementById('trackView').classList.contains('hidden'))masterButton.click();else document.getElementById('fileInput').click()});
 hint.after(cta);
-const sync=()=>{cta.disabled=masterButton.disabled;cta.textContent=masterButton.disabled?'✦ Upload a track to begin':'✦ Make It Sound Better'};
-new MutationObserver(sync).observe(masterButton,{attributes:true,attributeFilter:['disabled']});sync();
+const sync=()=>{const uploaded=!document.getElementById('trackView').classList.contains('hidden');const busy=/^(DECODING|ANALYSING|MASTERING)$/i.test((document.querySelector('.status-pill')?.textContent||'' ).trim());cta.disabled=uploaded&&masterButton.disabled;cta.textContent=!uploaded?'✦ Choose an audio file':busy?'✦ Processing audio…':document.getElementById('exportModule')&&!document.getElementById('exportModule').classList.contains('hidden')?'✦ Enhance Again':'✦ Make It Sound Better'};
+new MutationObserver(sync).observe(masterButton,{attributes:true,attributeFilter:['disabled']});new MutationObserver(sync).observe(document.getElementById('trackView'),{attributes:true,attributeFilter:['class']});new MutationObserver(sync).observe(document.getElementById('exportModule'),{attributes:true,attributeFilter:['class']});sync();
 function mode(name){const advanced=name==='advanced';masterPanel.classList.toggle('sono-advanced-hidden',!advanced);bar.querySelectorAll('button').forEach(b=>{const active=b.dataset.sonoMode===name;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});hint.textContent=advanced?'Fine-tune the mastering controls below, then process your track.':'Choose a sound profile and press one button. SONO processes your audio locally on this device.';cta.hidden=advanced;}
 bar.addEventListener('click',e=>{const b=e.target.closest('[data-sono-mode]');if(b)mode(b.dataset.sonoMode)});
 mode('auto');
