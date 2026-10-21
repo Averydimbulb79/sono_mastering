@@ -35,6 +35,32 @@ footer{height:42px;max-width:1600px;margin:auto;display:flex;justify-content:spa
 @media(max-width:480px){.top-actions .status-pill{display:none}.panel{padding:16px}.drop-zone{height:225px}.profiles{grid-template-columns:1fr 1fr}.profile{min-height:92px}.analysis-grid{grid-template-columns:1fr 1fr}.analysis-grid article:nth-child(3){border-right:1px solid var(--line)}.analysis-grid article:nth-child(even){border-right:0}.analysis-grid article:nth-child(n+3){border-top:1px solid var(--line)}.edit-title-row{display:block}.edit-title-row small{display:block;margin-top:5px}.mark-actions,.remove-row{grid-template-columns:1fr}.remove-row strong{text-align:center}.fade-row{grid-template-columns:60px 1fr 55px}.fade-presets{grid-template-columns:repeat(2,1fr)}.fade-presets>span{grid-column:1/-1}footer span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
+
+/* SONO 2.0 responsive visual system */
+:root{--bg:#090f1c;--panel:#111b2b;--panel-2:#172337;--line:#2a3850;--line-soft:#233149;--text:#f3f6ff;--muted:#a4b2cc;--silver:#d5def1;--amber:#7585ff;--amber-light:#51d6e9;--success:#4bdfb3;--shadow:0 18px 45px #03071270;color-scheme:dark}
+html{scroll-behavior:smooth}body{background:radial-gradient(ellipse at 40% -15%,#243a64,transparent 60%),#090f1c;font-family:Inter,system-ui,sans-serif}
+.topbar{background:#0d1726ed;border-bottom-color:#2b3851}.brand,.section-head h1,.section-head h2,.dialog-head h2,.profile strong,.master-button span,.drop-zone strong,.edit-card-head strong{font-family:Inter,system-ui,sans-serif;letter-spacing:-.035em;font-weight:650}
+.brand{letter-spacing:.12em}.brand-mark i{background:linear-gradient(#9b69ff,#31c8ef);border-radius:5px}
+.workspace{gap:14px;background:transparent;padding:18px;grid-template-columns:minmax(320px,1.15fr) minmax(340px,1.15fr) minmax(270px,.75fr)}
+.panel{border:1px solid #283650;border-radius:18px;box-shadow:0 12px 40px #02061435;background:linear-gradient(145deg,#142035,#101a2a)}
+.output-panel{background:linear-gradient(145deg,#142035,#101827)}
+button,select,.profile,.drop-zone,.wave-shell,.edit-card,.controls-card,.reference-card,.export-module,.status-pill,.icon-button{border-radius:11px}
+button{transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}button:hover:not(:disabled){transform:translateY(-1px)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #6ccffa;outline-offset:3px}
+.amber-button,.master-button{background:linear-gradient(110deg,#874cff,#426eff 55%,#26c6e8);border:0;color:white;box-shadow:0 10px 30px #345aff35}
+.amber-button:hover,.master-button:hover:not(:disabled){filter:brightness(1.13)}
+.profile.active{background:linear-gradient(140deg,#6d56ed2b,#209ad31c);border-color:#8187ff}.profile.active:after{background:#5edbe8}
+.ab-toggle button.active{background:#526cfa;color:white}
+.wave-shell{background:#0a1423}.wave-play{background:#253958e8;border-color:#6489bd}
+input[type=range]{accent-color:#6d80ff}.eyebrow{color:#8da4ff}.dial{background:conic-gradient(from 225deg,#697bff 0deg,#697bff var(--angle),#343d52 var(--angle),#343d52 270deg,transparent 270deg)}
+.sono-modebar{display:flex;gap:8px;margin:0 0 18px}.sono-modebar button{flex:1;padding:13px 10px;background:#19253b;color:#c6d5ed;border:1px solid #32425d;font-weight:650}.sono-modebar button.active{background:linear-gradient(110deg,#754af0,#326ce9);border-color:#7885ff;color:#fff}
+.sono-auto-cta{display:block;width:100%;padding:17px 14px;margin:16px 0;background:linear-gradient(110deg,#884cff,#416cff,#21c5e6);color:white;border:0;border-radius:13px;font-size:1rem;font-weight:750;box-shadow:0 12px 28px #4c62ff45}
+.sono-hint{font-size:.75rem;color:var(--muted);line-height:1.55;margin:0 0 14px}
+.sono-advanced-hidden .controls-card,.sono-advanced-hidden .reference-card{display:none}
+@media(max-width:1150px){.workspace{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.output-panel{grid-column:1/-1}.panel{padding:22px}}
+@media(max-width:800px){.workspace{grid-template-columns:minmax(0,1fr);padding:12px;gap:12px}.output-panel{grid-column:auto}.topbar{padding:0 16px}.panel{padding:18px}.tagline{display:none}.profiles{grid-template-columns:repeat(3,minmax(0,1fr))}.controls-grid,.controls-grid.seven-controls{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 0}.wave-shell{height:180px}}
+@media(max-width:480px){.topbar{height:60px}.brand{font-size:1.08rem}.status-pill{display:none}.workspace{padding:9px}.panel{padding:15px;border-radius:15px}.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}.profile{min-height:82px}.controls-grid,.controls-grid.seven-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.analysis-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.analysis-grid article:nth-child(n+4){border-top:1px solid var(--line)}.drop-zone{height:180px}.wave-shell{height:135px}.section-head h1,.section-head h2{font-size:1.35rem}.sono-auto-cta{min-height:56px}.fade-presets{grid-template-columns:repeat(4,1fr)}.fade-presets>span{grid-column:1/-1}.remove-row{grid-template-columns:1fr}.selection-readout{gap:5px}.selection-readout input{padding:8px 5px;font-size:.78rem}}
+
 </style>
   <style>
   .edit-history{display:flex;align-items:center;gap:12px}.edit-history button:disabled{opacity:.3;cursor:not-allowed}.edit-history button:disabled:hover{color:inherit}
@@ -591,6 +617,26 @@ $("#fileInput").addEventListener("change",()=>{S.undo=[];S.redo=[];historyButton
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();e.shiftKey?redoEdit():undoEdit()}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="y"){e.preventDefault();redoEdit()}});
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(e=>console.warn("Offline mode unavailable",e)));
 
+</script>
+<script>
+/* SONO 2.0 progressive enhancement: existing audio DSP and exports remain unchanged. */
+(function(){
+const masterPanel=document.querySelector('.master-panel'), masterButton=document.getElementById('masterButton');
+if(!masterPanel||!masterButton)return;
+const bar=document.createElement('nav');bar.className='sono-modebar';bar.setAttribute('aria-label','Processing mode');
+bar.innerHTML='<button type="button" class="active" data-sono-mode="auto" aria-pressed="true">✦ Auto Enhance</button><button type="button" data-sono-mode="advanced" aria-pressed="false">☷ Advanced</button>';
+const heading=masterPanel.querySelector('.section-head');if(heading)heading.after(bar);else masterPanel.prepend(bar);
+const hint=document.createElement('p');hint.className='sono-hint';hint.textContent='Choose a sound profile and press one button. SONO processes your audio locally on this device.';
+bar.after(hint);
+const cta=document.createElement('button');cta.type='button';cta.className='sono-auto-cta';cta.textContent='✦ Make It Sound Better';cta.disabled=masterButton.disabled;
+cta.addEventListener('click',()=>masterButton.click());
+hint.after(cta);
+const sync=()=>{cta.disabled=masterButton.disabled;cta.textContent=masterButton.disabled?'✦ Upload a track to begin':'✦ Make It Sound Better'};
+new MutationObserver(sync).observe(masterButton,{attributes:true,attributeFilter:['disabled']});sync();
+function mode(name){const advanced=name==='advanced';masterPanel.classList.toggle('sono-advanced-hidden',!advanced);bar.querySelectorAll('button').forEach(b=>{const active=b.dataset.sonoMode===name;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});hint.textContent=advanced?'Fine-tune the mastering controls below, then process your track.':'Choose a sound profile and press one button. SONO processes your audio locally on this device.';cta.hidden=advanced;}
+bar.addEventListener('click',e=>{const b=e.target.closest('[data-sono-mode]');if(b)mode(b.dataset.sonoMode)});
+mode('auto');
+})();
 </script>
 </body>
 </html>
