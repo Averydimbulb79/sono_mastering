@@ -1,6 +1,6 @@
 # SONO
 
-Version 2.0 | Responsive audio mastering studio
+Version 2.1 | Concept-inspired charcoal mastering workspace
 
 Your track. Finished.
 
@@ -9,6 +9,21 @@ Sono is a self-contained browser-based audio mastering application for WAV and M
 ## Live application
 
 [Open Sono](https://averydimbulb79.github.io/sono_mastering/)
+
+## Version 2.1: unified mastering workspace
+
+| Feature | Behaviour |
+| --- | --- |
+| Concept-inspired interface | Charcoal/black surfaces, compact player, restrained controls |
+| Persistent A/B comparison | Original and Enhanced controls placed directly beneath the waveform |
+| Auto mode | Profile, strength and one primary enhancement action |
+| Advanced mode | Checkboxes for seven existing mastering parameters, with detailed controls |
+| Editing | Existing clip removal and fades under an optional expandable section |
+| Analysis | Collapsible track assessment and technical metrics |
+| Responsive design | Mobile single-column, desktop shared player and dual lower panels |
+| Rollback checkpoint | `backup/pre-sono-2-1-concept-ui` |
+
+The Advanced checkboxes currently bypass existing mastering parameter adjustments by setting neutral values. They do not yet represent independently implemented spectral-restoration DSP modules. A/B audio playback continues to use the existing engine. This release has not been independently tested in a live Android browser.
 
 ## Version 2.0: responsive studio
 
@@ -60,6 +75,7 @@ Sono is currently a functional browser-based beta. The core workflow is operatio
 | 7 | Simplified the experience around plain-language review, four sound choices, one strength control and optional fine-tuning | Completed |
 | 8 | Added installable web-app support, standalone launch behaviour, app icons and offline shell caching | Completed |
 | 2.0 | Responsive studio redesign, one-click Auto Enhance and Advanced mode | Completed |
+| 2.1 | Charcoal concept UI, visible waveform A/B controls, reorganised Auto/Advanced modes | Committed; live QA pending |
 
 ## Install Sono
 
