@@ -23,6 +23,11 @@ Sono is a self-contained browser-based audio mastering application for WAV and M
 
 The 2.0 release focuses on user experience. Advanced non-AI spectral restoration, automatic artifact detection, and selectable individual restoration algorithms are planned, not yet implemented. The existing mastering engine, editing functions, A/B monitoring and export workflow remain the processing foundation.
 
+### 2.0 maintenance
+
+- Fixed Auto Enhance button state after file upload and analysis, especially on mobile.
+- The primary action now opens file selection before import and offers enhancement after a track is ready.
+
 ## Project status
 
 Sono is currently a functional browser-based beta. The core workflow is operational, including audio import, analysis, waveform editing, mastering, A/B comparison and local export.
