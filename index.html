@@ -61,6 +61,34 @@ input[type=range]{accent-color:#6d80ff}.eyebrow{color:#8da4ff}.dial{background:c
 @media(max-width:800px){.workspace{grid-template-columns:minmax(0,1fr);padding:12px;gap:12px}.output-panel{grid-column:auto}.topbar{padding:0 16px}.panel{padding:18px}.tagline{display:none}.profiles{grid-template-columns:repeat(3,minmax(0,1fr))}.controls-grid,.controls-grid.seven-controls{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 0}.wave-shell{height:180px}}
 @media(max-width:480px){.topbar{height:60px}.brand{font-size:1.08rem}.status-pill{display:none}.workspace{padding:9px}.panel{padding:15px;border-radius:15px}.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}.profile{min-height:82px}.controls-grid,.controls-grid.seven-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.analysis-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.analysis-grid article:nth-child(n+4){border-top:1px solid var(--line)}.drop-zone{height:180px}.wave-shell{height:135px}.section-head h1,.section-head h2{font-size:1.35rem}.sono-auto-cta{min-height:56px}.fade-presets{grid-template-columns:repeat(4,1fr)}.fade-presets>span{grid-column:1/-1}.remove-row{grid-template-columns:1fr}.selection-readout{gap:5px}.selection-readout input{padding:8px 5px;font-size:.78rem}}
 
+
+/* SONO 2.1: mobile-first charcoal concept design */
+:root{--bg:#111113;--panel:#242426;--panel-2:#29292c;--line:#3a3a3e;--line-soft:#343438;--text:#f5f5f6;--muted:#aaaab0;--silver:#d7d7db;--amber:#dedee4;--amber-light:#fff;--success:#89d2b4;color-scheme:dark}
+body{background:#111113;color:var(--text)}.topbar{height:68px;background:#202023;border-bottom:1px solid #343438;position:relative}.brand{font-weight:650;letter-spacing:.09em}.brand-mark i{background:#c6c6d1}.tagline,.status-pill{display:none}
+.workspace{display:flex;flex-direction:column;max-width:1000px;gap:14px;padding:18px;margin:auto;background:none;min-height:0}
+.panel,.output-panel{background:#242426;border:1px solid #343438;border-radius:23px;box-shadow:none;padding:22px}
+.section-head{margin-bottom:15px}.section-head h1,.section-head h2{font-size:1.2rem;font-weight:650;letter-spacing:-.02em}.eyebrow{color:#a5a5b1}
+.track-panel{order:0}.master-panel{order:1}.output-panel{order:2}
+.track-view{background:#09090a;border:1px solid #29292b;border-radius:17px;padding:16px}.track-meta{border:0;padding:2px 0 14px}.file-glyph{display:none}.track-name-wrap{margin-left:0}.track-name-wrap strong{font-size:1.05rem}.track-name-wrap span{font-size:.75rem}.analysis-state{font-size:.65rem}
+.wave-shell{border:0;border-radius:9px;background:#09090a;height:150px}.wave-play{border-radius:50%;background:#2c2c30;border-color:#666}.playhead{background:#e3e3ed}.transport-row{padding:13px 4px}.volume-control input{accent-color:#d6d6e4}
+.sono-monitor{margin-top:12px;padding-top:15px;border-top:1px solid #303034;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sono-monitor>strong{font-size:.85rem;font-weight:550}.sono-monitor .ab-module{border:0;margin:0;padding:0;flex:1;max-width:310px}.sono-monitor .module-label{display:none}.sono-monitor .ab-toggle{border:0;border-radius:12px;background:#2c2c2f;padding:4px;gap:4px}.sono-monitor .ab-toggle button{font-family:Inter,system-ui,sans-serif;font-weight:600;border:0!important;border-radius:9px;padding:10px 8px;font-size:.85rem}.sono-monitor .ab-toggle button.active{background:#111113;color:white}.sono-monitor .ab-toggle button:not(.active){background:transparent;color:#a7a7ad}.sono-monitor .ab-toggle button span{font-size:.83rem}.sono-monitor .match-toggle{font-size:.68rem;margin:8px 0 0}.sono-monitor .ab-module>small{display:none}
+.sono-modebar{background:#09090a;border:1px solid #3a3a3d;border-radius:14px;padding:5px;gap:5px;margin:0 0 16px}.sono-modebar button{border:0;border-radius:10px;background:transparent;color:#a6a6ac;padding:13px;font-size:.95rem}.sono-modebar button.active{background:#2d2d30;border:0;color:#fff;box-shadow:none}
+.sono-hint{font-size:.83rem;line-height:1.6;color:#b1b1b8;margin:0 0 13px}.sono-auto-cta{background:#333336;box-shadow:none;border:1px solid #414146;color:#fff;border-radius:13px;font-size:1rem;padding:18px;margin:15px 0}.sono-auto-cta:hover:not(:disabled){background:#414146;filter:none}
+.sono-advanced-hidden .controls-card,.sono-advanced-hidden .reference-card{display:none}.sono-advanced-hidden .profiles{display:grid}
+.profiles{gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}.profile{background:#19191b;border:1px solid #353539;border-radius:13px;min-height:82px;padding:12px}.profile.active{background:#303034;border-color:#8d8d98}.profile.active:after{background:#fff}.profile-icon{display:none}.profile strong{font-size:.87rem;font-weight:600}.profile small{font-size:.66rem;line-height:1.45}
+.strength-control{margin-top:16px}.strength-control input{accent-color:#c4c4d0}
+.controls-card,.reference-card,.edit-card,.export-module{border-color:#39393e;background:#202023;border-radius:14px}
+.ab-toggle button.active{background:#343438;color:white}.master-button{background:#333336;color:white;box-shadow:none;border:1px solid #44444a;border-radius:13px}.master-button:hover:not(:disabled){filter:none;background:#404045}
+.drop-zone{background:#19191b;border-color:#55555a;border-radius:16px}.amber-button{background:#36363b;color:white;border:1px solid #505056;box-shadow:none}.amber-button:hover{background:#46464c}
+.sono-processing-card{border-radius:16px;background:#09090a;padding:18px;margin-top:12px}.sono-processing-card .sono-hint{margin-bottom:10px}
+.sono-advanced-hidden .sono-advanced-chain{display:none}.sono-advanced-chain{display:grid;gap:8px;margin:12px 0}
+.sono-dsp-row{background:#202023;border:1px solid #37373c;border-radius:11px;padding:12px}.sono-dsp-row label{display:flex;align-items:center;gap:11px;font-size:.85rem}.sono-dsp-row input{width:18px;height:18px;accent-color:#bdbdc8}.sono-dsp-row small{display:block;margin:6px 0 0 29px;color:#a5a5ad;font-size:.7rem;line-height:1.5}
+.sono-advanced-note{font-size:.72rem;color:#aaaab0;line-height:1.5}
+.sono-output-header{font-size:1rem;font-weight:650;margin:0 0 15px}
+@media(min-width:1000px){.workspace{max-width:1160px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}.track-panel{grid-column:1/-1}.master-panel{grid-column:1}.output-panel{grid-column:2}.wave-shell{height:185px}}
+@media(max-width:767px){.workspace{padding:10px;gap:10px}.panel,.output-panel{padding:15px;border-radius:20px}.topbar{height:62px}.track-view{padding:12px}.wave-shell{height:125px}.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}.profile{min-height:74px}.sono-monitor{gap:7px}.sono-monitor .ab-module{min-width:210px}.section-head h1,.section-head h2{font-size:1.1rem}.sono-auto-cta{min-height:55px}.output-panel{padding-bottom:24px}}
+
 </style>
   <style>
   .edit-history{display:flex;align-items:center;gap:12px}.edit-history button:disabled{opacity:.3;cursor:not-allowed}.edit-history button:disabled:hover{color:inherit}
@@ -619,22 +647,60 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.ser
 
 </script>
 <script>
-/* SONO 2.0 progressive enhancement: existing audio DSP and exports remain unchanged. */
+/* SONO 2.1: reorganise existing functional controls without replacing audio engine */
 (function(){
-const masterPanel=document.querySelector('.master-panel'), masterButton=document.getElementById('masterButton');
-if(!masterPanel||!masterButton)return;
-const bar=document.createElement('nav');bar.className='sono-modebar';bar.setAttribute('aria-label','Processing mode');
-bar.innerHTML='<button type="button" class="active" data-sono-mode="auto" aria-pressed="true">✦ Auto Enhance</button><button type="button" data-sono-mode="advanced" aria-pressed="false">☷ Advanced</button>';
-const heading=masterPanel.querySelector('.section-head');if(heading)heading.after(bar);else masterPanel.prepend(bar);
-const hint=document.createElement('p');hint.className='sono-hint';hint.textContent='Choose a sound profile and press one button. SONO processes your audio locally on this device.';
-bar.after(hint);
-const cta=document.createElement('button');cta.type='button';cta.className='sono-auto-cta';cta.textContent='✦ Make It Sound Better';cta.disabled=masterButton.disabled;
-cta.addEventListener('click',()=>{if(!document.getElementById('trackView').classList.contains('hidden'))masterButton.click();else document.getElementById('fileInput').click()});
-hint.after(cta);
-const sync=()=>{const uploaded=!document.getElementById('trackView').classList.contains('hidden');const busy=/^(DECODING|ANALYSING|MASTERING)$/i.test((document.querySelector('.status-pill')?.textContent||'' ).trim());cta.disabled=uploaded&&masterButton.disabled;cta.textContent=!uploaded?'✦ Choose an audio file':busy?'✦ Processing audio…':document.getElementById('exportModule')&&!document.getElementById('exportModule').classList.contains('hidden')?'✦ Enhance Again':'✦ Make It Sound Better'};
-new MutationObserver(sync).observe(masterButton,{attributes:true,attributeFilter:['disabled']});new MutationObserver(sync).observe(document.getElementById('trackView'),{attributes:true,attributeFilter:['class']});new MutationObserver(sync).observe(document.getElementById('exportModule'),{attributes:true,attributeFilter:['class']});sync();
-function mode(name){const advanced=name==='advanced';masterPanel.classList.toggle('sono-advanced-hidden',!advanced);bar.querySelectorAll('button').forEach(b=>{const active=b.dataset.sonoMode===name;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});hint.textContent=advanced?'Fine-tune the mastering controls below, then process your track.':'Choose a sound profile and press one button. SONO processes your audio locally on this device.';cta.hidden=advanced;}
+const $=s=>document.querySelector(s);
+const track=$('.track-view'),panel=$('.master-panel'),output=$('.output-panel'),master=$('#masterButton');
+if(!track||!panel||!output||!master)return;
+const monitor=document.createElement('div');monitor.className='sono-monitor';monitor.innerHTML='<strong>Listen to</strong>';
+const ab=$('.ab-module');monitor.append(ab);track.append(monitor);
+ab.querySelector('[data-mode="original"]').innerHTML='<span>Original</span>';
+ab.querySelector('[data-mode="mastered"]').innerHTML='<span>Enhanced</span>';
+const bar=document.createElement('nav');bar.className='sono-modebar';bar.setAttribute('aria-label','Enhancement mode');
+bar.innerHTML='<button type="button" data-sono-mode="auto" aria-pressed="true">Auto</button><button type="button" data-sono-mode="advanced" aria-pressed="false">Advanced</button>';
+const heading=panel.querySelector('.section-head');heading.after(bar);
+const content=document.createElement('div');content.className='sono-processing-card';
+const title=document.createElement('h3');title.style.cssText='font-size:1rem;margin:0 0 12px;font-weight:650';title.textContent='✧ Automatic Enhancement';
+const hint=document.createElement('p');hint.className='sono-hint';hint.textContent='SONO will analyse your track and apply the selected mastering profile.';
+const cta=document.createElement('button');cta.type='button';cta.className='sono-auto-cta';
+content.append(title,hint);bar.after(content);
+const profiles=panel.querySelector('.profiles'),strength=panel.querySelector('.strength-control');
+content.append(profiles,strength,cta);
+const advanced=document.createElement('div');advanced.className='sono-advanced-chain';
+const configs=[
+['Tone and warmth','warmth','Control harmonic colour and body'],
+['High-frequency clarity','brightness','Adjust the upper-frequency balance'],
+['Bass balance','bass','Adjust low-frequency weight'],
+['Transient punch','punch','Adjust perceived attack and density'],
+['Vocal presence','presence','Adjust the midrange presence region'],
+['Stereo width','width','Control stereo image width'],
+['Mastering density','loudness','Adjust compression and density']
+];
+const neutral={warmth:50,brightness:50,bass:50,punch:50,presence:50,width:100,loudness:50};
+const checks=new Map();
+configs.forEach(([name,id,description])=>{
+const row=document.createElement('div');row.className='sono-dsp-row';
+const label=document.createElement('label');const check=document.createElement('input');check.type='checkbox';check.checked=true;check.setAttribute('aria-label','Enable '+name);
+label.append(check,document.createTextNode(name));row.append(label);
+const note=document.createElement('small');note.textContent=description;row.append(note);
+advanced.append(row);checks.set(id,check);
+check.addEventListener('change',()=>{const dial=$('#'+id);if(!dial)return;if(!check.checked){check.dataset.saved=dial.value;dial.value=neutral[id]}else dial.value=check.dataset.saved||dial.value;dial.dispatchEvent(new Event('input',{bubbles:true}))});
+});
+const info=document.createElement('p');info.className='sono-advanced-note';info.textContent='These switches control the existing mastering parameters. Dedicated spectral restoration modules will be introduced separately.';advanced.append(info);
+content.append(advanced);
+const fine=panel.querySelector('.fine-tune');fine.open=true;content.append(fine);
+const reference=panel.querySelector('.reference-card');content.append(reference);
+const referenceCompare=$('#referenceCompare');if(referenceCompare)content.append(referenceCompare);
+function mode(name){const adv=name==='advanced';panel.classList.toggle('sono-advanced-hidden',!adv);bar.querySelectorAll('button').forEach(b=>{let active=b.dataset.sonoMode===name;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});title.textContent=adv?'☷ Advanced Processing':'✧ Automatic Enhancement';hint.textContent=adv?'Choose which mastering adjustments to apply. Expand Fine-tune for detailed controls.':'SONO will analyse your track and apply the selected mastering profile.';advanced.hidden=!adv;fine.hidden=!adv;reference.hidden=!adv;cta.textContent='';update()};
+function update(){const ready=!$('#trackView').classList.contains('hidden');const completed=!$('#exportModule').classList.contains('hidden');cta.disabled=ready&&master.disabled;cta.textContent=!ready?'Choose Audio File':master.disabled?'Processing…':completed?'Reprocess Audio':'Make It Sound Better'}
+cta.addEventListener('click',()=>{if($('#trackView').classList.contains('hidden'))$('#fileInput').click();else if(!master.disabled)master.click()});
 bar.addEventListener('click',e=>{const b=e.target.closest('[data-sono-mode]');if(b)mode(b.dataset.sonoMode)});
+new MutationObserver(update).observe(master,{attributes:true,attributeFilter:['disabled']});
+new MutationObserver(update).observe($('#trackView'),{attributes:true,attributeFilter:['class']});
+new MutationObserver(update).observe($('#exportModule'),{attributes:true,attributeFilter:['class']});
+const exportModule=$('#exportModule');output.querySelector('.section-head h2').textContent='Export your audio';
+const review=$('#simpleReview');if(review){const details=document.createElement('details');details.className='technical-details';const summary=document.createElement('summary');summary.textContent='Track assessment';review.before(details);details.append(summary,review);const advice=$('#trackAdvice');if(advice)details.append(advice)}
+const edit=$('#editCard');if(edit){const details=document.createElement('details');details.className='technical-details';const summary=document.createElement('summary');summary.textContent='Optional audio editing and fades';edit.before(details);details.append(summary,edit);edit.classList.remove('hidden');new MutationObserver(()=>{edit.classList.toggle('hidden',$('#trackView').classList.contains('hidden'))}).observe($('#trackView'),{attributes:true,attributeFilter:['class']})}
 mode('auto');
 })();
 </script>
